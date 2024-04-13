@@ -5,5 +5,5 @@ OpenLayersのcanvasFunctionを使って、世界地図に重ねてマンデル�
 
 ## サンプル
 
-
+https://ghkwmr.github.io/ol-mandelbrot/
 
