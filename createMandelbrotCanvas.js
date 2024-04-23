@@ -21,7 +21,6 @@ const mandelbrot = function (x, y) {
 	return 0;
 };
 
-
 export default function (width, height, bbox) {
 
 	//座標変換
@@ -42,22 +41,17 @@ export default function (width, height, bbox) {
 	for (let j = 0; j < height; j++) {
 		for (let i = 0; i < width; i++) {
 			const index = (i + j * width) * 4;
-			
+
 			const x = getX(i);
 			const y = getY(j);
 
 			const z = mandelbrot(x, y);
-
 			const c = cmap.get(z % 32);
 
-			data.data[index] = c.r; // R
-			data.data[index + 1] = c.g; // G
-			data.data[index + 2] = c.b; // B
-			data.data[index + 3] = 255; // A
+			data.data.set([c.r, c.g, c.b, 255], index);
 		}
 	}
 
 	ctx.putImageData(data, 0, 0);
-
 	return cv;
 }
